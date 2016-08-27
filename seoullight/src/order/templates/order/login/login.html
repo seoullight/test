@@ -1,19 +1,17 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
         <!-- 합쳐지고 최소화된 최신 CSS -->
-        <link rel="stylesheet" href="../resources/bootstrap/css/bootstrap.css">
-        
-        <link rel="stylesheet" href="../resources/css/common.css">
-        
-        <!--jQuery-->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
-        <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-        <script src="../resources/bootstrap/js/bootstrap.js"></script>
-        <script src="../resources/js/login.js"></script>
-        
+		<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+		<link rel="stylesheet" href="{% static 'css/common.css' %}">
+        <script>
+        	function loginCheck(){
+        		var form = document.loginForm;
+        		form.submit();
+        	}
+        </script>
     </head>
     <body>
         
@@ -23,7 +21,7 @@
             <div class="navbar-header">
               
               <a class="navbar-brand" href="#">
-                <img src="../resources/img/seoulLightLogo.png">    
+                <img src="{% static 'img/seoulLightLogo.png' %}">    
               </a>
             </div>
 
@@ -70,28 +68,30 @@ NAVER 내의 개별 서비스 이용, 이벤트 응모 및 경품 신청 과정�
                 </div>
                 
                 <div class="panel panel-default col-sm-12 firstPanel">
-                    <div class="margin-top-15">
-                        <div class="form-group">
-                            <label class="col-sm-12 control-label">
-                                E-Mail
-                            </label>
-                            <div class="col-sm-12">
-                                <input type="text" class="form-control" placeholder="E-Mail을 입력해주세요." />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-12 control-label">
-                                Password
-                            </label>
-                            <div class="col-sm-12">
-                                <input type="text" class="form-control" placeholder="비밀번호를 입력해주세요."/>
-                            </div>
-                        </div>
-                    </div>
+                	<form name="loginForm" method="post" action="/login/">
+	                    <div class="margin-top-15">
+	                        <div class="form-group">
+	                            <label class="col-sm-12 control-label">
+	                                E-Mail
+	                            </label>
+	                            <div class="col-sm-12">
+	                                <input type="text" name="eMail" class="form-control" placeholder="E-Mail을 입력해주세요." />
+	                            </div>
+	                        </div>
+	                        <div class="form-group margin-bottom-15">
+	                            <label class="col-sm-12 control-label">
+	                                Password
+	                            </label>
+	                            <div class="col-sm-12">
+	                                <input type="text" name="password" class="form-control" placeholder="비밀번호를 입력해주세요."/>
+	                            </div>
+	                        </div>
+	                    </div>
+                    </form>
                 </div>
                 
                 <div class="col-sm-12 text-center">
-                    <button type="button" class="btn btn-primary" id="loginBtn"> 서울라이트 시작하기</button>
+                    <button type="button" class="btn btn-primary" id="loginBtn" onclick="javascript:loginCheck();"> 서울라이트 시작하기</button>
                 </div>
             
             </div>  

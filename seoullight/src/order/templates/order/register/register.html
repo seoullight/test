@@ -6,6 +6,13 @@
         <!-- 합쳐지고 최소화된 최신 CSS -->
 		<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
 		<link rel="stylesheet" href="{% static 'css/common.css' %}">
+		
+		<script>
+			function writeCheck(){
+				var form = document.registForm;
+				form.submit();
+			}
+		</script>
         
     </head>
     <body>
@@ -29,7 +36,7 @@
                 
                 <div class="panel panel-default col-sm-12 firstPanel">
 
-                    <form class="form-horizontal col-sm-12 margin-top-15">
+                    <form class="form-horizontal col-sm-12 margin-top-15" name="registForm" method="post" action="/DoWriteRegistInfo/">
                         <label class="title-label">
                             <h4>당신의 정보를 입력해주세요.</h4>
                         </label>
@@ -39,7 +46,7 @@
                                     E-mail :
                                 </label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" placeholder="Please write your email address" />
+                                    <input type="text" class="form-control" name="eMail" placeholder="Please write your email address" />
                                 </div>
                             </div>
                             <div class="form-group">
@@ -47,7 +54,7 @@
                                     Password : 
                                 </label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" placeholder="Please write your password"/>
+                                    <input type="text" class="form-control" name="password" placeholder="Please write your password"/>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -55,7 +62,7 @@
                                     gender : 
                                 </label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" placeholder="Please write your gender"/>
+                                    <input type="text" class="form-control" name="gender" placeholder="Please write your gender"/>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -63,7 +70,7 @@
                                     age :
                                 </label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" placeholder="Please write your age"/>
+                                    <input type="text" class="form-control" name="age" placeholder="Please write your age"/>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -71,7 +78,7 @@
                                     country : 
                                 </label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" placeholder="Please write your country"/>
+                                    <input type="text" class="form-control" name="nation" placeholder="Please write your country"/>
                                 </div>
                             </div>
                         </div>
@@ -79,7 +86,7 @@
                 </div>
 
                 <div class="col-sm-12 text-center">
-                    <button type="button" class="btn btn-primary" id="callSeoulBtn"> 서울라이트 가입하기</button>
+                    <button type="button" class="btn btn-primary" onclick="javascript:writeCheck();"> 서울라이트 가입하기</button>
                 </div>
             
             </div>  
