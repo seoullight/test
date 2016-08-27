@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!-- 합쳐지고 최소화된 최신 CSS -->
+        <link rel="stylesheet" href="../resources/bootstrap/css/bootstrap.css">
+        
+        <link rel="stylesheet" href="../resources/css/common.css">
+        
+        <!--jQuery-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+        <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+        <script src="../resources/bootstrap/js/bootstrap.js"></script>
+        <script src="../resources/js/insertInfo.js"></script>
+        
+    </head>
+    <body>
+        
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              
+              <a class="navbar-brand" href="#">
+                <img src="../resources/img/seoulLightLogo.png">    
+              </a>
+            </div>
+
+          </div><!-- /.container-fluid -->
+        </nav>
+        
+        <div class="container-fluid">
+        
+            <div class="panel panel-body bodyPanel panel-default col-sm-12">
+                
+                <div class="panel panel-default col-sm-12 firstPanel">
+
+                    <form class="form-horizontal col-sm-12 margin-top-15">
+                        <label class="title-label">
+                            <h4>운송 정보를 입력해주세요.</h4>
+                        </label>
+                        <div class="margin-top-15">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    이름 :
+                                </label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" placeholder="호텔에 예약된 이름을 입력해주세요." />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    도착지 :
+                                </label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" placeholder="최종 도착지를 입력해주세요."/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    짐 종류 : 
+                                </label>
+                                <div class="col-sm-10">
+                                    <select class="form-control">
+                                        <option> 캐리어</option>
+                                        <option> 쇼핑백</option>
+                                        <option> 배낭</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 title-label">
+                                    짐 개수 :
+                                </label>
+                                <div class="col-sm-10">
+                                    <select class="form-control">
+                                        <option> 1</option>
+                                        <option> 2</option>
+                                        <option> 3</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="panel panel-default col-sm-12 secondPanel">
+                    <form class="form-horizontal col-sm-12 margin-top-15">
+                        <label class="title-label">
+                            <h4> 예상 금액 : 12,000 원</h4>
+                        </label> 
+                    </form>
+                </div>
+                
+                <div class="panel panel-default col-sm-12 secondPanel">
+                    <form class="form-horizontal col-sm-12 margin-top-15">
+                        <label class="title-label">
+                            <h4>어디에서 만날까요?</h4>
+                        </label>
+                        
+                        <div class="mapArea">
+                            <img src="../resources/img/mapSample.png">
+                        </div>
+                        
+                    </form>
+                </div>
+                
+            
+                
+                
+                <div class="col-sm-12 text-center">
+                    <button type="button" class="btn btn-primary" id="callSeoulBtn"> 서울라이트 부르기</button>
+                </div>
+            
+            </div>  
+        
+        </div>
+      
+    </body>
+</html>
