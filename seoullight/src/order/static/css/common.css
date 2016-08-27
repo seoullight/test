@@ -1,0 +1,73 @@
+.navbar-brand img{
+    position: relative;
+    margin-top: -12px;
+    margin-left: -12px;
+
+}
+
+.mapArea{
+    overflow: auto;
+    max-height: 200px;
+}
+
+.loading img{
+    max-width: 300px;
+}
+
+.carousel slide {
+    position: relative;
+    
+}
+
+.outerPanel {
+    position: relative;
+    margin-top: -25px;
+}
+
+.navbar-default{
+    background-color: #11a69a;
+    border-color: #11a69a;
+}
+
+.outerPanel{
+    background-color: #fdef1d;
+    border-color: #fdef1d;
+}
+
+.firstPanel{
+    position: relative;
+    border: solid 1px #11a69a;
+}
+
+.wordPanel{
+    background-color: #fdef1d;
+}
+
+.secondPanel{
+    position: relative;
+    border: solid 1px #11a69a;
+    
+}
+
+.jumbotron{
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+.margin-top-15{
+    margin-top: 15px;
+    
+}
+
+.privateInformationArea{
+    overflow-y: auto;
+    max-height: 100px;
+
+}
+
+.bodyPanel{
+    margin-top: -5px;
+    background-color: #b4ddcc;
+}
