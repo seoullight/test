@@ -9,6 +9,14 @@ class DeliveringState(enum.Enum):
     SHIPPING = 2
     HOTEL_ARRIVED = 3
     FINISHED = 4
+    
+    labels = {
+        SHIPPED: 'Shipped',
+        WAREHOUSE_ARRIVED: 'Warehouse Arrived',
+        SHIPPING: 'Shipping',
+        HOTEL_ARRIVED: 'Hotel Arrived',
+        FINISHED: 'Finished'
+    }
 
 class Customer(models.Model):
     email = models.EmailField('email')
