@@ -1,0 +1,54 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, height=device-height, user-scalable=no" charset="utf-8">
+        <!-- 합쳐지고 최소화된 최신 CSS -->
+		<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+		<link rel="stylesheet" href="{% static 'css/common.css' %}">
+		
+		<script>
+			function writeCheck(){
+				var form = document.registForm;
+				form.submit();
+			}
+			
+			function returnLoginForm(){
+				location.href = "/showLoginForm/";
+			}
+		</script>
+        
+    </head>
+    <body>
+    	<nav class="navbar navbar-default margin-bottom-0">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              
+              <a class="navbar-brand" href="#">
+                <img src="{% static 'img/seoulLightLogo.png' %}">    
+              </a>
+            </div>
+
+          </div><!-- /.container-fluid -->
+        </nav>
+        
+        <div class="container-fluid">
+            <div class="panel panel-body padding-0 margin-bottom-0">
+                <form class="form-horizontal" name="registForm" method="post" action="/DoWriteRegistInfo/">
+                    <div class="panel panel-default margin-topBottom-15">
+                        <div class="panel panel-heading margin-topBottom-0">
+                            <strong>주문 리스트</strong>
+                        </div>
+                    </div>
+                    
+                    <div class="panel panel-default margin-bottom-0 col-sm-12">
+                        
+                    
+                    </div>
+                  
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

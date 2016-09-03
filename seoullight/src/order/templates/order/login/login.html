@@ -11,11 +11,14 @@
         		var form = document.loginForm;
         		form.submit();
         	}
+        	
+        	function showRegistView(){
+				location.href = "/showRegistForm/";        		
+        	}
         </script>
     </head>
     <body>
-        
-        <nav class="navbar navbar-default">
+	    <nav class="navbar navbar-default margin-bottom-0">
           <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -29,29 +32,23 @@
         </nav>
         
         <div class="container-fluid">
-        
-            <div class="panel panel-body bodyPanel panel-default col-sm-12">
-                
-                <div class="panel panel-default col-sm-12 firstPanel">
-                    <div class="jumbotron">
-                    
-                        <h2>Seoulight</h2>
-                        <p>서울을 가볍게 여행하세요!</p>
-                        
-                    </div>
-                    
+            <div class="panel panel-heading padding-0 margin-bottom-0">
+                <div class="jumbotron margin-0">
+                    <h2>Seoul Light</h2>
+                    <p>서울을 가볍게 여행하세요!</p>
                 </div>
-                
-                <div class="panel panel-default col-sm-12 secondPanel">
-
-                    <form class="form-horizontal col-sm-12 margin-top-15">
-                        <label>개인정보동의</label>
+            </div>
+            
+            <div class="panel panel-body padding-0 margin-bottom-0">
+                <form class="form-horizontal" name="loginForm" method="post" action="/login/">
+                    <label>
+                        <span class="glyphicon glyphicon-hand-right" aria-hidden="true"><strong> 개인정보수집동의</strong>
+                        </span>
+                    </label>
                     
-                    
-                        <div class="form-group">
-                        
-                            <div class="col-sm-12 privateInformationArea">
-                            정보통신망법 규정에 따라 서울라이트에 회원가입 신청하시는 분께 수집하는 개인정보의 항목, 개인정보의 수집 및 이용목적, 개인정보의 보유 및 이용기간을 안내 드리오니 자세히 읽은 후 동의하여 주시기 바랍니다.
+                    <div class="panel panel-default">
+                        <div class="col-sm-12 privateInformationArea">
+                        정보통신망법 규정에 따라 서울라이트에 회원가입 신청하시는 분께 수집하는 개인정보의 항목, 개인정보의 수집 및 이용목적, 개인정보의 보유 및 이용기간을 안내 드리오니 자세히 읽은 후 동의하여 주시기 바랍니다.
 1. 수집하는 개인정보
 이용자는 회원가입을 하지 않아도 정보 검색, 뉴스 보기 등 대부분의 서울라이트 서비스를 회원과 동일하게 이용할 수 있습니다. 이용자가 메일, 캘린더, 카페, 블로그 등과 같이 개인화 혹은 회원제 서비스를 이용하기 위해 회원가입을 할 경우, 서울라이트는 서비스 이용을 위해 필요한 최소한의 개인정보를 수집합니다.
 회원가입 시점에 서울라이트가 이용자로부터 수집하는 개인정보는 아래와 같습니다.
@@ -61,43 +58,35 @@
 NAVER 내의 개별 서비스 이용, 이벤트 응모 및 경품 신청 과정에서 해당 서비스의 이용자에 한해 추가 개인정보 수집이 발생할 수 있습니다. 추가로 개인정보를 수집할 경우에는 해당 개인정보 수집 시점에서 이용자에게 ‘수집하는 개인정보 항목, 개인정보의 수집 및 이용목적, 개인정보의 보관기간’에 대해 안내 드리고 동의를 받습니다.
 서비스 이용 과정에서 IP 주소, 쿠키, 방문일시·불량 이용 기록 등의 서비스 이용 기록, 기기정보가 생성되어 수집될 수 있습니다.
 구체적으로 1) 서비스 이용 과정에서 이용자에 관한 정보를 정보통신서비스 제공자가 자동화된 방법으로 생성하여 이를 저장(수집)하거나, 2) 이용자 기기의 고유한 정보를 원래의 값을 확인하지 못하도록 안전하게 변환한 후에 수집하는 경우를 의미합니다.
+                    
+                        </div>
+                    </div>
+                    
+                    <div class="panel panel-default margin-bottom-0 col-sm-12 margin-top-12">
+                        <div class="form-group margin-top-12">
+                            <label class="col-sm-2 control-label">
+                                E-mail :
+                            </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="email" placeholder="Please write your email address" />
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">
+                                Password : 
+                            </label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" name="password" placeholder="Please write your password"/>
+                            </div>
+                        </div>
+                    </div>
                     
-                    </form>
-                </div>
-                
-                <div class="panel panel-default col-sm-12 firstPanel">
-                	<form name="loginForm" method="post" action="/login/">
-	                    <div class="margin-top-15">
-	                        <div class="form-group">
-	                            <label class="col-sm-12 control-label">
-	                                E-Mail
-	                            </label>
-	                            <div class="col-sm-12">
-	                                <input type="text" name="eMail" class="form-control" placeholder="E-Mail을 입력해주세요." />
-	                            </div>
-	                        </div>
-	                        <div class="form-group margin-bottom-15">
-	                            <label class="col-sm-12 control-label">
-	                                Password
-	                            </label>
-	                            <div class="col-sm-12">
-	                                <input type="text" name="password" class="form-control" placeholder="비밀번호를 입력해주세요."/>
-	                            </div>
-	                        </div>
-	                    </div>
-                    </form>
-                </div>
-                
-                <div class="col-sm-12 text-center">
-                    <button type="button" class="btn btn-primary" id="loginBtn" onclick="javascript:loginCheck();"> 서울라이트 시작하기</button>
-                    <button type="button" class="btn btn-primary" id="loginBtn" onclick="javascript:loginCheck();"> 서울라이트 시작하기</button>
-                </div>
-            
-            </div>  
-        
+                    <div class="col-sm-12 text-center margin-top-12">
+                        <button type="button" class="btn btn-success btn-sm" onclick="javascript:loginCheck();"> 로그인</button>
+                        <button type="button" class="btn btn-default btn-sm" onclick="javascript:showRegistView();"> 가입하기</button>
+                    </div>
+                </form>
+            </div>
         </div>
-      
     </body>
 </html>

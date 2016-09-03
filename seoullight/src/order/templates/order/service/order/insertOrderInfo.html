@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, height=device-height, user-scalable=no" charset="utf-8">
         <!-- 합쳐지고 최소화된 최신 CSS -->
 		<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
 		<link rel="stylesheet" href="{% static 'css/common.css' %}">
@@ -15,7 +15,7 @@
     </head>
     <body>
         
-        <nav class="navbar navbar-default">
+        <nav class="navbar navbar-default margin-bottom-0">
           <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -29,60 +29,57 @@
         </nav>
         
         <div class="container-fluid">
-        
-            <div class="panel panel-body bodyPanel panel-default col-sm-12">
-                
-                <div class="panel panel-default col-sm-12 firstPanel">
-
-                    <form class="form-horizontal col-sm-12 margin-top-15" name="orderForm" method="post" action="/DoWriteOrderInfo/">
-                        <input type="hidden" name="eMail" value="{{userInfo}}" />
-                        <input type="hidden" name="state" value="state1" />
-                        <label class="title-label">
-                            <h4>운송 정보를 입력해주세요.</h4>
-                        </label>
-                        <div class="margin-top-15">
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">
-                                    이름 :
-                                </label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="customerName" placeholder="호텔에 예약된 이름을 입력해주세요." />
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">
-                                    도착지 :
-                                </label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="destination" placeholder="최종 도착지를 입력해주세요."/>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">
-                                    짐 종류 : 
-                                </label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="baggageKind" placeholder="짐 종류를 입력해주세요"/>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 title-label">
-                                    짐 개수 :
-                                </label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="quantity" placeholder="짐 갯수를 입력해주세요."/>
-                                </div>
+            <div class="panel panel-body padding-0 margin-bottom-0">
+                <form class="form-horizontal" name="orderForm" method="post" action="/DoWriteOrderInfo/">
+                	<input type="hidden" name="email" value="{{userInfo}}"/>
+                	<input type="hidden" name="state" value="callSeoullight" />
+                    <div class="panel panel-default margin-topBottom-15">
+                        <div class="panel panel-heading margin-topBottom-0">
+                            <strong>주문정보를 입력해주세요.</strong>
+                        </div>
+                    </div>
+                    
+                    <div class="panel panel-default margin-bottom-0 col-sm-12">
+                        <div class="form-group margin-top-12">
+                            <label class="col-sm-2 control-label">
+                                이름 :
+                            </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="customerName" placeholder="Please write reservedName in your hotel" />
                             </div>
                         </div>
-                    </form>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">
+                                목적지 
+                            </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="destination" placeholder="Please write your destination"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">
+                                짐 종류 : 
+                            </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="baggageKind" placeholder="Please write your baggage"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">
+                                짐 수량 : 
+                            </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="quantity" placeholder="Please write your baggage quantity"/>
+                            </div>
+                        </div>
+                    
+                    </div>
+                    
+                    <div class="col-sm-12 margin-top-12 text-center">
+                    <button type="button" class="btn btn-success" id="callSeoulBtn" onclick="javascript:orderInfoCheck();"> 서울라이트 부르기</button>
                 </div>
-                
-                <div class="col-sm-12 text-center">
-                    <button type="button" class="btn btn-primary" id="callSeoulBtn" onclick="javascript:orderInfoCheck();"> 서울라이트 부르기</button>
-                </div>
-            
-            </div>  
-        
+                </form>
+            </div>
         </div>
       
     </body>

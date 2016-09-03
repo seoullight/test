@@ -58,7 +58,10 @@
 
 .margin-top-15{
     margin-top: 15px;
-    
+}
+
+.margin-top-12{
+    margin-top: 12px;
 }
 
 .privateInformationArea{
@@ -70,4 +73,112 @@
 .bodyPanel{
     margin-top: -5px;
     background-color: #b4ddcc;
+}
+
+.margin-bottom-0{
+    margin-bottom: 0px;
+}
+
+.margin-0{
+    margin: 0px, 0px, 0px, 0px;
+}
+
+.padding-0{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.customTitlePanel{
+    margin-top: 0px;
+    padding-left: 0px;
+    border-top-width: 15px;
+}
+
+.margin-topBottom-0{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.margin-topBottom-15{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#shipped, #warehouseArrived, #destination{
+    display: inline-block;
+}
+
+.progressBox{
+    display: inline-block;
+    margin-top: 5px;
+    background-color: aqua;
+    border-color: black;
+    height: 15px;
+    width: 15px;
+}
+
+.outerProgressBox{
+
+}
+
+.innerProgressBox{
+    position: relative;
+    top: 20%;
+    left: 50%;
+    margin-left: -130px;
+}
+
+.deliveryPanel{
+    height: auto;
+}
+
+.imgBox{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border: 1px inset #ddd;
+}
+
+.arrowBox{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+}
+
+.progressImg{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    margin-top: -22px;
+    margin-left: -22px;
+}
+
+.imgGroup{
+    display: inline-block;
+}
+
+.deliveryStatus{
+    width: 50px;
+    text-align: center;
+}
+
+.baggageImgBox{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -100px;
+}
+
+.baggageIngBoxWrap{
+    width: auto;
+    height: 200px;
+}
+
+.tilePadding{
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-bottom: 5px;
 }

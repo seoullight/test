@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.contrib.auth.models import User
 
 class Customer(models.Model):
     eMail = models.EmailField('email')
@@ -15,7 +16,8 @@ class Order(models.Model):
     destination = models.CharField(max_length = 100)
     
 class testOrder(models.Model):
-    eMail = models.EmailField('email')
+    email = models.EmailField('email')
+    orderNumber = models.CharField(max_length = 40)
     state = models.CharField(max_length = 20)
     destination= models.CharField(max_length = 100)
     customerName = models.CharField(max_length = 50)
