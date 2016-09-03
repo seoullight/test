@@ -31,8 +31,8 @@
         <div class="container-fluid">
             <div class="panel panel-body padding-0 margin-bottom-0">
                 <form class="form-horizontal" name="orderForm" method="post" action="/DoWriteOrderInfo/">
+                	<input type="hidden" name="userPkId" value="{{userPkId}}" />
                 	<input type="hidden" name="email" value="{{userInfo}}"/>
-                	<input type="hidden" name="state" value="callSeoullight" />
                     <div class="panel panel-default margin-topBottom-15">
                         <div class="panel panel-heading margin-topBottom-0">
                             <strong>주문정보를 입력해주세요.</strong>
