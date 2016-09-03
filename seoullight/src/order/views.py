@@ -33,7 +33,6 @@ def login(request):
         
         userInfo = loginUser.email
         userPkId = loginUser.id
-        print(userInfo)
         return render_to_response('order/service/order/insertOrderInfo.html', {'userInfo':userInfo, 'userPkId':userPkId})
     else:
         return HttpResponse("Your username and password didn't match.")
@@ -67,4 +66,19 @@ def DoWriteOrderInfo(request):
 
 @csrf_exempt
 def showOrderList(request):
-    return render_to_response('order/service/order/orderList.html')
+    loginUserEmail = request.session['email']
+    allOrderList = list(Order.objects.all())
+    orderList = list()
+    for order in allOrderList:
+        if order.customer.email == loginUserEmail:
+            orderList.append(order)
+    
+    return render_to_response('order/service/order/orderList.html', {'orderList':orderList})
+
+@csrf_exempt
+def showOrderDetail(request):
+    sendedOrderNumber = request.POST['orderNumber']
+    order = Order.objects.get(orderNumber=sendedOrderNumber)
+    orderStatus = order.deliveringState
+    
+    return render_to_response('order/service/order/orderDetail.html', {'orderNumber':sendedOrderNumber, 'orderStatus':orderStatus})

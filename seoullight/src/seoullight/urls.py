@@ -10,5 +10,6 @@ urlpatterns = [
     url(r'^login/$', views.login),
     url(r'^DoWriteOrderInfo/$', views.DoWriteOrderInfo),
     url(r'^showOrderList/$', views.showOrderList),
+    url(r'^showOrderDetail/$', views.showOrderDetail),
     url(r'^admin/', include(admin.site.urls)),
 ]

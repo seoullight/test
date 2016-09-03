@@ -6,16 +6,30 @@
         <!-- 합쳐지고 최소화된 최신 CSS -->
 		<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
 		<link rel="stylesheet" href="{% static 'css/common.css' %}">
+		<script src="{% static 'js/jquery-3.1.0.slim.min.js' %}" ></script>
 		
 		<script>
-			function writeCheck(){
-				var form = document.registForm;
-				form.submit();
-			}
+		$(document).ready(function(){
+			$(".showDetailBtn").each(function(){
+				$this = $(this)
+				
+				$this.click(function(){
+					
+					$this = $(this)
+					var dataType = $this.data("type");
+					var orderDiv = $this.prev();
+					var orderNumber = orderDiv.val()
+					$("#orderNumber").val(orderNumber);
+					
+					var form = $("#orderListForm");
+					form.submit();
+					
+				})
+			})
+		});
 			
-			function returnLoginForm(){
-				location.href = "/showLoginForm/";
-			}
+			
+			
 		</script>
         
     </head>
@@ -35,16 +49,33 @@
         
         <div class="container-fluid">
             <div class="panel panel-body padding-0 margin-bottom-0">
-                <form class="form-horizontal" name="registForm" method="post" action="/DoWriteRegistInfo/">
+                <form class="form-horizontal" id="orderListForm" method="post" action="/showOrderDetail/">
+                	<input type="hidden" name="orderNumber" id="orderNumber" value="" />
                     <div class="panel panel-default margin-topBottom-15">
                         <div class="panel panel-heading margin-topBottom-0">
                             <strong>주문 리스트</strong>
                         </div>
                     </div>
                     
-                    <div class="panel panel-default margin-bottom-0 col-sm-12">
-                        
-                    
+                    <div class="panel panel-default margin-bottom-0 col-sm-12 padding-top-12">
+                    	{% for order in orderList %}
+                    	<div class="panel panel-default margin-bottom-12">
+	                    	<div class="form-group margin-bottom-0 padding-left-12">
+	                            <label class="col-sm-2 control-label">
+	                               	주문번호 : "{{order.orderNumber}}"
+	                            </label>
+	                            <div class="col-sm-8">
+									주문상태 :"{{order.deliveringState}}"
+									<br/>
+									목적지 :"{{order.destination}}"
+	                            </div>
+	                            <div class="col-sm-2 text-right buttonCss">
+	                            	<input type="hidden" class="tempOrderNumber{{order.id}}" value="{{order.orderNumber}}" />
+	                            	<button type="button" class="btn btn-default btn-sm showDetailBtn" id="showDetailBtn{{order.id}}" data-type="{{order.id}}">주문상세</button>
+	                            </div>
+	                        </div>
+                        </div>
+                        {% endfor %}     
                     </div>
                   
                 </form>

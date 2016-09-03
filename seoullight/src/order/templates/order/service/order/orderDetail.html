@@ -1,0 +1,116 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, height=device-height, user-scalable=no" charset="utf-8">
+        <!-- 합쳐지고 최소화된 최신 CSS -->
+		<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+		<link rel="stylesheet" href="{% static 'css/common.css' %}">
+        <script>
+        	function orderInfoCheck(){
+        		var form = document.orderForm;
+        		form.submit();
+        	}
+        </script>
+    </head>
+    <body>
+        
+        <nav class="navbar navbar-default margin-bottom-0">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              
+              <a class="navbar-brand" href="#">
+                <img src="{% static 'img/seoulLightLogo.png' %}">    
+              </a>
+            </div>
+
+          </div><!-- /.container-fluid -->
+        </nav>
+        
+        <div class="container-fluid">
+            <div class="panel panel-body padding-0 margin-bottom-0">
+                <form class="form-horizontal">
+                	<input type="hidden" id="deliveryStatus" value="{{orderStatus}}" />
+                    <div class="panel panel-default margin-topBottom-15">
+                        <div class="panel panel-heading margin-topBottom-0">
+                            <strong>배송 상황 정보</strong>
+                        </div>
+                    </div>
+                    
+                    <div class="panel panel-default deliveryPanel margin-bottom-0 col-sm-12">
+                        
+                        <div class="panel panel-default margin-topBottom-15">
+                            <div class="panel panel-title tilePadding">
+                                <strong>주문번호 : "{{orderNumber}}"</strong>
+                            </div>
+                        </div>
+                        
+                        <div class="outerProgressBox">
+                            <div class="innerProgressBox margin-top-12">
+                                <div class="imgGroup">
+                                    <div class="imgBox" id="shipped">
+                                        <img class="progressImg" src="{% static 'img/1472412990_motorcycle.svg' %}" alt="triangle with all three sides equal" height="45px" width="45px" />
+                                    </div>
+                                    <div class="deliveryStatus">
+                                        Spot
+                                    </div>
+                                </div>
+                                <div class="imgGroup">
+                                    <div class="arrowBox">
+                                        <img class="progressImg" src="{% static 'img/1472502132_arrow-right.svg' %}" alt="triangle with all three sides equal" height="45px" width="45px" />
+                                    </div>
+                                    <div class="deliveryStatus">
+                                        ....
+                                    </div>
+                                </div>
+                                <div class="imgGroup">
+                                    <div class="imgBox" id="warehouseArrived">
+                                        <img class="progressImg" src="{% static 'img/1472413059_Transport.svg' %}" alt="triangle with all three sides equal" height="45px" width="45px" />
+                                    </div>
+                                    <div class="deliveryStatus">
+                                        Truck
+                                    </div>
+                                </div>
+                                <div class="imgGroup">
+                                    <div class="arrowBox">
+                                        <img class="progressImg" src="{% static 'img/1472502132_arrow-right.svg' %}" alt="triangle with all three sides equal" height="45px" width="45px" />
+                                    </div>
+                                    <div class="deliveryStatus">
+                                        ....
+                                    </div>
+                                </div>
+                                <div class="imgGroup">
+                                    <div class="imgBox" id="destination">
+                                        <img class="progressImg" src="{% static 'img/1472417322_City.svg' %}" alt="triangle with all three sides equal" height="45px" width="45px" />
+                                    </div>
+                                    <div class="deliveryStatus">
+                                        Hotel
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="panel panel-default margin-topBottom-15">
+                            <div class="panel panel-title tilePadding">
+                                <strong>물품 사진</strong>
+                            </div>
+                        </div>
+                        <div class="panel panel-default margin-topBottom-15 baggageIngBoxWrap">
+                            <div class="baggageImgBox" id="shipped">
+                                <img src="{% static 'img/sampleBaggage.jpg' %}" alt="triangle with all three sides equal" height="150px" width="200px" />
+                            </div>
+                        </div>
+                    
+                    </div>
+                    
+                    <div class="col-sm-12 text-center margin-top-12">
+                        <button type="button" class="btn btn-success btn-sm" onclick="javascript:returnLoginForm();"> 완료</button>
+                        <button type="button" class="btn btn-default btn-sm" onclick="javascript:returnLoginForm();"> 취소</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+      
+    </body>
+</html>
