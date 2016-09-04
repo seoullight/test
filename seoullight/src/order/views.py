@@ -1,10 +1,15 @@
 from datetime import datetime
-from django.utils import formats
-from django.shortcuts import render_to_response
-from order.models import Order, Customer, DeliveringState
-from django.http.response import HttpResponseRedirect
+
 from django.http.response import HttpResponse
+from django.http.response import HttpResponseRedirect
+from django.shortcuts import render_to_response
+from django.template.context import RequestContext
+from django.template.loader import get_template
+from django.utils import formats
 from django.views.decorators.csrf import csrf_exempt
+
+from order.models import Order, Customer, DeliveringState
+
 
 def showRegistForm(request):
     return render_to_response('order/register/register.html')
@@ -82,3 +87,13 @@ def showOrderDetail(request):
     orderStatus = order.deliveringState
     
     return render_to_response('order/service/order/orderDetail.html', {'orderNumber':sendedOrderNumber, 'orderStatus':orderStatus})
+
+@csrf_exempt
+def duplicationCheck(request):
+        
+    email = request.GET['email']
+    if Customer.objects.filter(email=email).exists():
+        duplicated = True
+    else:
+        duplicated = False
+    return HttpResponse(duplicated)

@@ -6,6 +6,8 @@
         <!-- 합쳐지고 최소화된 최신 CSS -->
 		<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
 		<link rel="stylesheet" href="{% static 'css/common.css' %}">
+		<script src="{% static 'js/jquery-3.1.0.slim.min.js' %}" ></script>
+		<script src="{% static 'js/parsley.js' %}" ></script>
         <script>
         	function orderInfoCheck(){
         		var form = document.orderForm;
@@ -20,7 +22,7 @@
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
               
-              <a class="navbar-brand" href="#">
+              <a class="navbar-brand" href="/showLoginForm/">
                 <img src="{% static 'img/seoulLightLogo.png' %}">    
               </a>
             </div>
@@ -30,7 +32,7 @@
         
         <div class="container-fluid">
             <div class="panel panel-body padding-0 margin-bottom-0">
-                <form class="form-horizontal" name="orderForm" method="post" action="/DoWriteOrderInfo/">
+                <form data-parsley-validate="" class="form-horizontal" name="orderForm" method="post" action="/DoWriteOrderInfo/">
                 	<input type="hidden" name="userPkId" value="{{userPkId}}" />
                 	<input type="hidden" name="email" value="{{userInfo}}"/>
                     <div class="panel panel-default margin-topBottom-15">
@@ -45,7 +47,7 @@
                                 이름 :
                             </label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="customerName" placeholder="Please write reservedName in your hotel" />
+                                <input type="text" class="form-control" name="customerName" placeholder="Please write reserved name in your hotel" required="" />
                             </div>
                         </div>
                         <div class="form-group">
@@ -53,7 +55,7 @@
                                 목적지 
                             </label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="destination" placeholder="Please write your destination"/>
+                                <input type="text" class="form-control" name="destination" placeholder="Please write your destination" required=""/>
                             </div>
                         </div>
                         <div class="form-group">
@@ -61,7 +63,7 @@
                                 짐 종류 : 
                             </label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="baggageKind" placeholder="Please write your baggage"/>
+                                <input type="text" class="form-control" name="baggageKind" placeholder="Please write your baggage" required=""/>
                             </div>
                         </div>
                         <div class="form-group">
@@ -69,14 +71,14 @@
                                 짐 수량 : 
                             </label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="quantity" placeholder="Please write your baggage quantity"/>
+                                <input type="text" class="form-control" name="quantity" placeholder="Please write your baggage quantity" required="" data-parsley-type="integer"/>
                             </div>
                         </div>
                     
                     </div>
                     
                     <div class="col-sm-12 margin-top-12 text-center">
-                    <button type="button" class="btn btn-success" id="callSeoulBtn" onclick="javascript:orderInfoCheck();"> 서울라이트 부르기</button>
+                    <button type="submit" class="btn btn-success" id="callSeoulBtn" value="validate"> 서울라이트 부르기</button>
                 </div>
                 </form>
             </div>
