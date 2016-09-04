@@ -11,5 +11,6 @@ urlpatterns = [
     url(r'^DoWriteOrderInfo/$', views.DoWriteOrderInfo),
     url(r'^showOrderList/$', views.showOrderList),
     url(r'^showOrderDetail/$', views.showOrderDetail),
+    url(r'^duplicationCheck/$', views.duplicationCheck),
     url(r'^admin/', include(admin.site.urls)),
 ]
