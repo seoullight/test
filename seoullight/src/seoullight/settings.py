@@ -58,6 +58,12 @@ WSGI_APPLICATION = 'seoullight.wsgi.application'
 
 DATABASES = {
     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'seoullight$default',
+#         'USER': 'seoullight',
+#         'PASSWORD': 'bizadmin',
+#         'HOST': 'seoullight.mysql.pythonanywhere-services.com',
+#         'PORT': '3306',
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
