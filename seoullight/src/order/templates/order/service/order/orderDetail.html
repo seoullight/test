@@ -6,11 +6,42 @@
         <!-- 합쳐지고 최소화된 최신 CSS -->
 		<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
 		<link rel="stylesheet" href="{% static 'css/common.css' %}">
+		<script src="{% static 'js/jquery-3.1.0.slim.min.js' %}" ></script>
         <script>
-        	function orderInfoCheck(){
-        		var form = document.orderForm;
-        		form.submit();
-        	}
+        	$(document).ready(function(){
+        		//
+        		var shipped = "0";
+        		var warehouseArrived = "1";
+        		var shipping = "2";
+        		var hotelArrived = "3"
+        		var finish = "4";
+        		
+        		var shippedDiv = $("#shipped");
+        		var wareHouseDiv = $("#warehouseArrived");
+        		var shippingDiv = $("#shipping");
+        		var finishDiv = $("#finish");
+        		var showStatusDiv = $("#showStatus");
+        		var deliveryStatus = $("#deliveryStatus").val();
+        		if(deliveryStatus == shipped){
+        			shippedDiv.css("background-color", "#ffff00")
+        			showStatusDiv.val("물품 수령")
+        		} else if(deliveryStatus == warehouseArrived){
+        			shippedDiv.css("background-color", "#00e600")
+        			wareHouseDiv.css("background-color", "#ffff00")
+        			showStatusDiv.val("물품 창고 도착")
+        		} else if(deliveryStatus == shipping){
+        			shippedDiv.css("background-color", "#40ff00")
+        			wareHouseDiv.css("background-color", "#40ff00")
+        			shippingDiv.css("background-color", "#ffff00")
+        			showStatusDiv.val("물품 배송 시작")
+        		} else if(deliveryStatus == hotelArrived){
+        			shippedDiv.css("background-color", "#40ff00")
+        			wareHouseDiv.css("background-color", "#40ff00")
+        			shippingDiv.css("background-color", "#40ff00")
+        			finishDiv.css("background-color", "#ffff00")
+        			showStatusDiv.val("목적지 도착")
+        		}
+        	})
         </script>
     </head>
     <body>
@@ -46,6 +77,13 @@
                             </div>
                         </div>
                         
+                        <div class="panel panel-default margin-topBottom-15">
+                            <div class="col-sm-12 margin-top-12">
+                               	<label>현재 배송상태</label>
+                               	<input type="text" class="form-control margin-bottom-12" id="showStatus" readonly="readonly" />
+                            </div>
+                        </div>
+                        
                         <div class="outerProgressBox">
                             <div class="innerProgressBox margin-top-12">
                                 <div class="imgGroup">
@@ -66,6 +104,22 @@
                                 </div>
                                 <div class="imgGroup">
                                     <div class="imgBox" id="warehouseArrived">
+                                        <img class="progressImg" src="{% static 'img/1472986094_box.svg' %}" alt="triangle with all three sides equal" height="45px" width="45px" />
+                                    </div>
+                                    <div class="deliveryStatus">
+                                        Ware
+                                    </div>
+                                </div>
+                                <div class="imgGroup">
+                                    <div class="arrowBox">
+                                        <img class="progressImg" src="{% static 'img/1472502132_arrow-right.svg' %}" alt="triangle with all three sides equal" height="45px" width="45px" />
+                                    </div>
+                                    <div class="deliveryStatus">
+                                        ....
+                                    </div>
+                                </div>
+                                <div class="imgGroup">
+                                    <div class="imgBox" id="shipping">
                                         <img class="progressImg" src="{% static 'img/1472413059_Transport.svg' %}" alt="triangle with all three sides equal" height="45px" width="45px" />
                                     </div>
                                     <div class="deliveryStatus">
@@ -81,7 +135,7 @@
                                     </div>
                                 </div>
                                 <div class="imgGroup">
-                                    <div class="imgBox" id="destination">
+                                    <div class="imgBox" id="finish">
                                         <img class="progressImg" src="{% static 'img/1472417322_City.svg' %}" alt="triangle with all three sides equal" height="45px" width="45px" />
                                     </div>
                                     <div class="deliveryStatus">
