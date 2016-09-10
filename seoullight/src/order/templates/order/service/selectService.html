@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
     <head>
@@ -5,19 +6,22 @@
         <!-- 합쳐지고 최소화된 최신 CSS -->
 		<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
 		<link rel="stylesheet" href="{% static 'css/common.css' %}">
-		<script src="{% static 'js/jquery-3.1.0.slim.min.js' %}" ></script>
+		<script src="{% static 'js/jquery-3.1.0.min.js' %}" ></script>
         <script type="text/javascript">
         	$(document).ready(function(){
         		//
-        		$("#makNewOrderBtn").click(function(){
-        			location.href =
+        		$("#newOrdrBtn").click(function(){
+        			location.href = "/showInsertOrderInfoView/";
+        		})
+        		
+        		$("#orderTrackingBtn").click(function(){
+        			location.href = "/showOrderList/";
         		})
         	})
         </script>
     </head>
     <body>
-        
-        <nav class="navbar navbar-default">
+    	<nav class="navbar navbar-default margin-bottom-0">
           <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -32,29 +36,25 @@
         
         <div class="container-fluid">
             <div class="panel panel-body padding-0 margin-bottom-0">
-                <form class="form-horizontal">
-                	<input type="hidden" id="deliveryStatus" value="{{orderStatus}}" />
+                <form class="form-horizontal" id="orderListForm" method="post" action="/showOrderDetail/">
+                	<input type="hidden" name="orderNumber" id="orderNumber" value="" />
                     <div class="panel panel-default margin-topBottom-15">
                         <div class="panel panel-heading margin-topBottom-0">
-                            <strong>서비스를 선택해주세요</strong>
+                            <strong>원하는 서비스를 선택해주세요.</strong>
                         </div>
                     </div>
                     
-                    <div class="panel panel-default deliveryPanel margin-bottom-0 col-sm-12">
-                        
-                        <div class="col-sm-12 text-center">
-		                    <button type="button" class="btn btn-primary btn-lg" id="makNewOrderBtn"> 신규 배송</button>
-		                </div>
-		                
-		                <div class="col-sm-12 text-center margin-top-15">
-		                    <button type="button" class="btn btn-primary btn-lg" id="showOrderList"> 배송 추적</button>
-		                </div>
-                    
+                    <div class="panel panel-default margin-bottom-0 col-sm-12 padding-top-12 text-center">
+                    	<div class="btn newOrderBtn" id="newOrdrBtn">
+                    		<h1><strong>신규 배송</strong></h1>
+                    	</div>
+                    	<div class="btn orderTrackingBtn margin-top-12 margin-bottom-12" id="orderTrackingBtn">
+                    		<h1><strong>배송 추적</strong></h1>
+                    	</div>
                     </div>
-                    
+                  
                 </form>
             </div>
         </div>
-      
     </body>
 </html>

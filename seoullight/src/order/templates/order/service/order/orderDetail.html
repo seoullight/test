@@ -6,7 +6,7 @@
         <!-- 합쳐지고 최소화된 최신 CSS -->
 		<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
 		<link rel="stylesheet" href="{% static 'css/common.css' %}">
-		<script src="{% static 'js/jquery-3.1.0.slim.min.js' %}" ></script>
+		<script src="{% static 'js/jquery-3.1.0.min.js' %}" ></script>
         <script>
         	$(document).ready(function(){
         		//
@@ -41,6 +41,10 @@
         			finishDiv.css("background-color", "#ffff00")
         			showStatusDiv.val("목적지 도착")
         		}
+        		
+        		$("#showOrderListBtn").click(function(){
+        			location.href = "/showOrderList/";
+        		})
         	})
         </script>
     </head>
@@ -88,7 +92,7 @@
                             <div class="innerProgressBox margin-top-12">
                                 <div class="imgGroup">
                                     <div class="imgBox" id="shipped">
-                                        <img class="progressImg" src="{% static 'img/1472412990_motorcycle.svg' %}" alt="triangle with all three sides equal" height="45px" width="45px" />
+                                        <img class="progressImg" src="{% static 'img/1472412990_motorcycle.svg' %}" alt="triangle with all three sides equal" height="35px" width="35px" />
                                     </div>
                                     <div class="deliveryStatus">
                                         Spot
@@ -96,7 +100,7 @@
                                 </div>
                                 <div class="imgGroup">
                                     <div class="arrowBox">
-                                        <img class="progressImg" src="{% static 'img/1472502132_arrow-right.svg' %}" alt="triangle with all three sides equal" height="45px" width="45px" />
+                                        <img class="progressImg" src="{% static 'img/1472502132_arrow-right.svg' %}" alt="triangle with all three sides equal" height="35px" width="35px" />
                                     </div>
                                     <div class="deliveryStatus">
                                         ....
@@ -104,7 +108,7 @@
                                 </div>
                                 <div class="imgGroup">
                                     <div class="imgBox" id="warehouseArrived">
-                                        <img class="progressImg" src="{% static 'img/1472986094_box.svg' %}" alt="triangle with all three sides equal" height="45px" width="45px" />
+                                        <img class="progressImg" src="{% static 'img/1472986094_box.svg' %}" alt="triangle with all three sides equal" height="35px" width="35px" />
                                     </div>
                                     <div class="deliveryStatus">
                                         Ware
@@ -112,7 +116,7 @@
                                 </div>
                                 <div class="imgGroup">
                                     <div class="arrowBox">
-                                        <img class="progressImg" src="{% static 'img/1472502132_arrow-right.svg' %}" alt="triangle with all three sides equal" height="45px" width="45px" />
+                                        <img class="progressImg" src="{% static 'img/1472502132_arrow-right.svg' %}" alt="triangle with all three sides equal" height="35px" width="35px" />
                                     </div>
                                     <div class="deliveryStatus">
                                         ....
@@ -120,7 +124,7 @@
                                 </div>
                                 <div class="imgGroup">
                                     <div class="imgBox" id="shipping">
-                                        <img class="progressImg" src="{% static 'img/1472413059_Transport.svg' %}" alt="triangle with all three sides equal" height="45px" width="45px" />
+                                        <img class="progressImg" src="{% static 'img/1472413059_Transport.svg' %}" alt="triangle with all three sides equal" height="35px" width="35px" />
                                     </div>
                                     <div class="deliveryStatus">
                                         Truck
@@ -128,7 +132,7 @@
                                 </div>
                                 <div class="imgGroup">
                                     <div class="arrowBox">
-                                        <img class="progressImg" src="{% static 'img/1472502132_arrow-right.svg' %}" alt="triangle with all three sides equal" height="45px" width="45px" />
+                                        <img class="progressImg" src="{% static 'img/1472502132_arrow-right.svg' %}" alt="triangle with all three sides equal" height="35px" width="35px" />
                                     </div>
                                     <div class="deliveryStatus">
                                         ....
@@ -136,7 +140,7 @@
                                 </div>
                                 <div class="imgGroup">
                                     <div class="imgBox" id="finish">
-                                        <img class="progressImg" src="{% static 'img/1472417322_City.svg' %}" alt="triangle with all three sides equal" height="45px" width="45px" />
+                                        <img class="progressImg" src="{% static 'img/1472417322_City.svg' %}" alt="triangle with all three sides equal" height="35px" width="35px" />
                                     </div>
                                     <div class="deliveryStatus">
                                         Hotel
@@ -160,7 +164,7 @@
                     
                     <div class="col-sm-12 text-center margin-top-12">
                         <button type="button" class="btn btn-success btn-sm" onclick="javascript:returnLoginForm();"> 완료</button>
-                        <button type="button" class="btn btn-default btn-sm" onclick="javascript:returnLoginForm();"> 취소</button>
+                        <button type="button" class="btn btn-default btn-sm" id="showOrderListBtn"> 취소</button>
                     </div>
                 </form>
             </div>

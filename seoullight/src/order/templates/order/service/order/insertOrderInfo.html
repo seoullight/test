@@ -6,13 +6,21 @@
         <!-- 합쳐지고 최소화된 최신 CSS -->
 		<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
 		<link rel="stylesheet" href="{% static 'css/common.css' %}">
-		<script src="{% static 'js/jquery-3.1.0.slim.min.js' %}" ></script>
+		<script src="{% static 'js/jquery-3.1.0.min.js' %}" ></script>
 		<script src="{% static 'js/parsley.js' %}" ></script>
         <script>
-        	function orderInfoCheck(){
-        		var form = document.orderForm;
-        		form.submit();
-        	}
+        
+        $(document).ready(function(){
+        	//
+        	$("#cancelBtn").click(function(){
+        		location.href = "/showSelectServiceView/";
+        	})
+        });
+        
+       	function orderInfoCheck(){
+       		var form = document.orderForm;
+       		form.submit();
+       	}
         </script>
     </head>
     <body>
@@ -34,7 +42,7 @@
             <div class="panel panel-body padding-0 margin-bottom-0">
                 <form data-parsley-validate="" class="form-horizontal" name="orderForm" method="post" action="/DoWriteOrderInfo/">
                 	<input type="hidden" name="userPkId" value="{{userPkId}}" />
-                	<input type="hidden" name="email" value="{{userInfo}}"/>
+                	<input type="hidden" name="email" value="{{loginUserEmail}}"/>
                     <div class="panel panel-default margin-topBottom-15">
                         <div class="panel panel-heading margin-topBottom-0">
                             <strong>주문정보를 입력해주세요.</strong>
@@ -78,8 +86,9 @@
                     </div>
                     
                     <div class="col-sm-12 margin-top-12 text-center">
-                    <button type="submit" class="btn btn-success" id="callSeoulBtn" value="validate"> 서울라이트 부르기</button>
-                </div>
+	                    <button type="submit" class="btn btn-success btn-sm" id="callSeoulBtn" value="validate"> 서울라이트 부르기</button>
+	                    <button type="button" class="btn btn-default btn-sm" id="cancelBtn">이전</button>
+                	</div>
                 </form>
             </div>
         </div>

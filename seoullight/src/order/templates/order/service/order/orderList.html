@@ -26,6 +26,10 @@
 					
 				})
 			})
+			
+			$("#cancelBtn").click(function(){
+        		location.href = "/showSelectServiceView/";
+        	})
 		});
 			
 			
@@ -58,16 +62,16 @@
                     </div>
                     
                     <div class="panel panel-default margin-bottom-0 col-sm-12 padding-top-12">
-                    	{% for order in orderList %}
+                    {% for order in orderList %}
                     	<div class="panel panel-default margin-bottom-12">
-	                    	<div class="form-group margin-bottom-0 padding-left-12">
+	                    	<div class="form-group margin-bottom-0 padding-left-12 padding-top-12">
 	                            <label class="col-sm-2 control-label">
 	                               	주문번호 : "{{order.orderNumber}}"
 	                            </label>
 	                            <div class="col-sm-8">
-									주문상태 :"{{order.get_deliveringState_display}}"
+									주문상태 : "{{order.get_deliveringState_display}}"
 									<br/>
-									목적지 :"{{order.destination}}"
+									목적지    : "{{order.destination}}"
 	                            </div>
 	                            <div class="col-sm-2 text-right buttonCss">
 	                            	<input type="hidden" class="tempOrderNumber{{order.id}}" value="{{order.orderNumber}}" />
@@ -75,9 +79,12 @@
 	                            </div>
 	                        </div>
                         </div>
-                        {% endfor %}     
                     </div>
-                  
+                    
+                    <div class="col-sm-12 margin-top-12 text-right padding-right-0">
+	                    <button type="button" class="btn btn-default btn-sm" id="cancelBtn">이전</button>
+                	</div>
+                    {% endfor %}
                 </form>
             </div>
         </div>

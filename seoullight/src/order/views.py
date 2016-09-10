@@ -38,7 +38,7 @@ def login(request):
         
         userInfo = loginUser.email
         userPkId = loginUser.id
-        return render_to_response('order/service/order/insertOrderInfo.html', {'userInfo':userInfo, 'userPkId':userPkId})
+        return render_to_response('order/service/selectService.html', {'userInfo':userInfo, 'userPkId':userPkId})
     else:
         return HttpResponse("Your username and password didn't match.")
 
@@ -97,3 +97,14 @@ def duplicationCheck(request):
     else:
         duplicated = False
     return HttpResponse(duplicated)
+
+@csrf_exempt
+def showInsertOrderInfoView(request):
+    loginUserEmail = request.session['email']
+    loginUser = Customer.objects.get(email=loginUserEmail)
+    userPkId = loginUser.id
+    return render_to_response('order/service/order/insertOrderInfo.html', {'loginUserEmail': loginUserEmail, 'userPkId':userPkId})
+
+@csrf_exempt
+def showSelectServiceView(request):
+    return render_to_response('order/service/selectService.html')
