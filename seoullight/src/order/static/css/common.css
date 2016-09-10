@@ -128,11 +128,12 @@
 }
 
 .outerProgressBox{
-	width : auto;
+	width : 312px;
 }
 
 .innerProgressBox{
     position: relative;
+    width: 310;
     top: 20%;
     left: 50%;
     margin-left: -150px;
